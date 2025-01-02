@@ -18,7 +18,9 @@ public:
 
     // Constructeur
     Vehicule(string pMarque, string pModele, int pAnnee, bool pEstElectrique)
-        : marque(pMarque), modele(pModele), annee(pAnnee), estElectrique(pEstElectrique) {}
+        : marque(pMarque), modele(pModele), annee(pAnnee), estElectrique(pEstElectrique) {
+        cout << "Construction - vehicule" << endl;
+    }
 
     // Méthode
     virtual void demarrer()
@@ -32,16 +34,18 @@ public:
     }
 };
 
-// Classe Sedan dérivée de Vehicule
-class Sedan : public Vehicule
+// Classe Berline dérivée de Vehicule
+class Berline : public Vehicule
 {
 private:
     string messageBienvenue;
     const int nombrePortes = 4;
 
 public:
-    Sedan(string pMarque, string pModele, int pAnnee, bool pEstElectrique)
-        : Vehicule(pMarque, pModele, pAnnee, pEstElectrique) {}
+    Berline(string pMarque, string pModele, int pAnnee, bool pEstElectrique)
+        : Vehicule(pMarque, pModele, pAnnee, pEstElectrique) {
+        cout << "Construction - berline" << endl;
+    }
 
     // Méthodes d'accès (getters)
     int getNombrePortes() const { return nombrePortes; }
@@ -66,7 +70,9 @@ private:
 
 public:
     Camion(string pMarque, string pModele, int pAnnee, bool pEstElectrique, int pCapaciteDeCharge, bool pEstDiesel)
-        : Vehicule(pMarque, pModele, pAnnee, pEstElectrique), capaciteDeCharge(pCapaciteDeCharge), estDiesel(pEstDiesel) {}
+        : Vehicule(pMarque, pModele, pAnnee, pEstElectrique), capaciteDeCharge(pCapaciteDeCharge), estDiesel(pEstDiesel) {
+        cout << "Construction - camion" << endl;
+    }
 
     // Getters et setters
     int getCapaciteDeCharge() const { return capaciteDeCharge; }
@@ -83,7 +89,7 @@ public:
         }
         else if (estElectrique)
         {
-            cout << "Le camion démarre silencieusement." << endl;
+            cout << "Le camion demarre silencieusement." << endl;
         }
     }
 };
@@ -98,15 +104,15 @@ int main()
     cout << "Marque: " << monVehicule.marque << endl << "Modele: " << monVehicule.modele << endl
         << "Annee: " << monVehicule.annee << endl << "Est electrique: " << (monVehicule.estElectrique ? "Oui" : "Non") << endl << endl;
 
-    // Exemple Sedan
-    Sedan monSedan("Nissan", "Versa", 2024, false);
-    cout << "Marque: " << monSedan.marque << endl << "Modele: " << monSedan.modele << endl
-        << "Annee: " << monSedan.annee << endl << "Est electrique: " << (monSedan.estElectrique ? "Oui" : "Non") << endl
-        << "Nombre de portes: " << monSedan.getNombrePortes() << endl
-        << "Message de bienvenue: " << monSedan.getMessageBienvenue() << endl;
+    // Exemple Berline
+    Berline maBerline("Nissan", "Versa", 2024, false);
+    cout << "Marque: " << maBerline.marque << endl << "Modele: " << maBerline.modele << endl
+        << "Annee: " << maBerline.annee << endl << "Est electrique: " << (maBerline.estElectrique ? "Oui" : "Non") << endl
+        << "Nombre de portes: " << maBerline.getNombrePortes() << endl
+        << "Message de bienvenue: " << maBerline.getMessageBienvenue() << endl;
 
-    monSedan.setMessageBienvenue("Bienvenue dans votre vehicule!");
-    cout << "Message de bienvenue revise: " << monSedan.getMessageBienvenue() << endl << endl;
+    maBerline.setMessageBienvenue("Bienvenue dans votre vehicule!");
+    cout << "Message de bienvenue revise: " << maBerline.getMessageBienvenue() << endl << endl;
 
     // Exemple Camion
     Camion monCamion("Chevrolet", "Silverado 1500", 2021, false, 2230, true);
@@ -126,9 +132,7 @@ int main()
         << "Est diesel: " << (monCamion.getEstDiesel() ? "Oui" : "Non") << "     Demarrer: ";
     monCamion.demarrer();
 
-    cout << endl;
+    cout << endl << endl;
 
     return 0;
 }
-
-
