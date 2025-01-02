@@ -1,6 +1,6 @@
 /*
 Auteur: Janie Bérubé
-Date: 2024-12-29
+Date: 2025-01-02
 Description: Exemple 2 - Encapsulation, héritage et polymorphisme
 */
 
@@ -12,19 +12,19 @@ using namespace std;
 // La classe Animal regroupe les propriétés d'un animal
 class Animal {
 private:
-    string name;  
+    string nom;  
     int age;      
 
 public:
-    // Méthodes pour définir les propriétés (encapsulation)
-    void setNom(string n) { name = n; }
+    // Méthodes pour définir et accéder et les propriétés
+    void setNom(string n) { nom = n; }
     void setAge(int a) { age = a; }
-    string getNom() { return name; }
+    string getNom() { return nom; }
     int getAge() { return age; }
 
     // Méthode pour afficher les informations de l'animal
     void montrerInfo() {
-        cout << "Type d'animal: " << name << endl;
+        cout << "Type d'animal: " << nom << endl;
         cout << "Age de l'animal: " << age << " ans" << endl;
     }
 

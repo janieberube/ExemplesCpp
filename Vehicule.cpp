@@ -53,7 +53,7 @@ public:
     // Redéfinir la méthode demarrer
     void demarrer() override
     {
-        cout << "La berline démarre." << endl;
+        cout << "La berline demarre." << endl;
     }
 };
 
@@ -79,7 +79,7 @@ public:
     {
         if (estDiesel)
         {
-            cout << "Vroom Vroom! Le camion diesel démarre!" << endl;
+            cout << "Vroom Vroom! Le camion diesel demarre!" << endl;
         }
         else if (estElectrique)
         {
